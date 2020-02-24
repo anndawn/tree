@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{margin:0}
+    #chart {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 9px;
+    }
+  
+    text {
+      pointer-events: none;
+    }
+  
+    .grandparent text {
+      font-weight: bold;
+    }
+  
+    rect {
+      fill: none;
+      stroke: #fff;
+    }
+  
+    rect:hover {
+      fill-opacity: 0.4;
+    }
+  
+    rect.parent,
+    .grandparent rect {
+      stroke-width: 2px;
+    }
+  
+    .hasChildren rect.parent,
+    .grandparent rect {
+      cursor: pointer;
+    }
+  
+    .hasChildren rect.parent {
+      fill: none;
+      /* stroke: grey;
+      stroke-width: 1px;
+      stroke-opacity: 0.6; */
+    }
+  
+    .hasChildren:hover rect.child {
+      fill: #bbb;
+    }
+  
+    #tooltip {
+      position: absolute;
+      width: 120px;
+      height: auto;
+      padding: 10px;
+      background-color: lightblue;
+      opacity: .9;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+      -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+      pointer-events: none;
+    }
+  
+    #tooltip.hidden {
+      display: none;
+    }
+  
+    #tooltip p {
+      margin: 0;
+      font-family: sans-serif;
+      font-size: 12px;
+      line-height: 14px;
+    }
+  </style>
+<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+<script src="item.js"></script>
+<body>
+    <p id="chart">
+    <div id="tooltip" class="hidden">
+        <p><strong id="heading"></strong></p>
+        <p><span id="tooltip_measure_1_title"></span> <span id="tooltip_measure_1"></span></p>
+        <p><span id="tooltip_measure_2_title"></span> <span id="tooltip_measure_2"></span></p>
+        <p><span id="tooltip_measure_3_title"></span> <span id="tooltip_measure_3"></span></p>
+      </div>
+</body>
+</html>
+
